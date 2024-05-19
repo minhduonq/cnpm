@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> fetchWeatherData(double lat, double lon) async {
     var lat = KeyLocation!.latitude;
     var lon = KeyLocation!.longitude;
-    const apikey = "28c97c05a7641193a30bef73a87ff415";
+    const apikey = "YOUR API KEY";
     final url = 'https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lon&exclude=minutely&units=$type&appid=$apikey';
 
     final response = await http.get(Uri.parse(url));
@@ -96,7 +96,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> getAQIIndex(double lat, double lon) async {
-    const appid = '0b5445878adb432729cff07122664073';
+    const appid = 'YOUR API KEY';
     var lat = KeyLocation!.latitude;
     var lon = KeyLocation!.longitude;
     final url = 'http://api.openweathermap.org/data/2.5/air_pollution?lat=$lat&lon=$lon&appid=$appid';
@@ -133,7 +133,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> getLocationName(double lat, double lon) async {
-    const key = 't8j30ZcKTjahgwuPbHRDWmqx1JXdaBg4Lz7a82tixWs';
+    const key = 'YOUR API KEY';
     final lat = currentLocation?.latitude;
     final lon = currentLocation?.longitude;
     final url =
