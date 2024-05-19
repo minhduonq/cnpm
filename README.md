@@ -1,16 +1,17 @@
-# weather
+# Weather Forecast
 
-A new Flutter project.
+A Flutter Project about weather forecast.
+Time Finish: Summer 2024.
+This is a project in Computer Engineering subject, VNU-UET.
+Time to finish: 2.5 month
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a simple weather forecast app.
+API Provider: 
+  OpenWeather
+  Here Platform
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# How to run
+This app is designed to run on multi platform. To start, access pubspec.yaml file to update configuation for the app. Then access the main.dart file to run
+# Please give this project a star to support the author.
