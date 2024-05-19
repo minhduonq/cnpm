@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:weather/Funt.dart';
+import 'package:weather/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather/LocationManage.dart';
@@ -12,8 +12,6 @@ class SearchPlace extends StatefulWidget {
 class _SearchPlaceState extends State<SearchPlace> {
   TextEditingController _searchController = TextEditingController();
   List<String> _places = [];
-  /*List<Map<String, dynamic>> _selectedPlaces = [];*/
-  /*Map<String, dynamic> data = {};*/
   Future<void> _searchPlaces(String query) async {
 
     query = query.replaceAll(' ', '+');
@@ -57,14 +55,14 @@ class _SearchPlaceState extends State<SearchPlace> {
     double lon = data['items'][index]['position']['lng'];
     
     selectedPlaces.add({
-      'name' : selectedPlace,
+      'name' : OfficialName(selectedPlace),
       'latitude': lat,
       'longitude': lon,
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('$selectedPlace đã được chọn.'),
+        content: Text('$selectedPlace đã được lưu.'),
       ),
     );
   }
@@ -73,22 +71,29 @@ class _SearchPlaceState extends State<SearchPlace> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search Place'),
+        title: Text('Tìm kiếm địa điểm khác'),
       ),
       body: Column(
         children: [
-          TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              labelText: 'Search',
-              suffixIcon: IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  _searchPlaces(_searchController.text);
-                },
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10)
+            ),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                labelText: 'Nhập nơi bạn muốn tìm kiếm',
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    _searchPlaces(_searchController.text);
+                  },
+                ),
               ),
             ),
           ),
+          
           Expanded(
             child: ListView.builder(
               itemCount: _places.length,
